@@ -8,7 +8,8 @@
     <p></p><h2>Menu : </h2></p>
     <p><a href="/connexion">Connexion </a></p>
     <p><a href="/inscription">Inscription</a></p>
-    <p><a href="/">Publier</a></p>
-    <p><a href="/">Message</a></p>
+    <p><a href="/message">Publier</a></p>
+    <p><a href="/messagerie">Message</a></p>
+    <p><a href="/abonnement">Abonnement</a></p>
   </body>
 </html>

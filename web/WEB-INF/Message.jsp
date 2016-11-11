@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form>
+    <form METHOD="POST">
         <p>Objet : <input type="text" name="objet"></p>
         <p>Message : <textarea name="message" ></textarea></p>
         <p class="submit"><input type="submit" name="commit" value="Envoyer"></p>

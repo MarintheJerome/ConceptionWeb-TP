@@ -3,6 +3,7 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name="entreprise")
 public class Entreprise extends Abonne{
 
     @Column(name="raisonSocial")

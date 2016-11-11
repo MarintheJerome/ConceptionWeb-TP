@@ -8,13 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Connexion</title>
 </head>
 <body>
-    <form>
+    <form method="POST">
         <p>Login : <input type="text" name="login"></p>
-        <p>MDP : <input type="password" name=""password></p>
-        <p class="submit"><input type="submit" name="commit" value="Connexion"></p>
+        <p>MDP : <input type="password" name="mdp"></p>
+        <p class="submit"><input type="submit" name="submit" id="submit" value="Connexion"></p>
     </form>
     <p><a href="/">Retour</a></p>
 </body>

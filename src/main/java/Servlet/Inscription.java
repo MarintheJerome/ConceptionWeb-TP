@@ -20,6 +20,7 @@ import static Utils.HibernateUtil.session;
 public class Inscription extends javax.servlet.http.HttpServlet {
 
     public static final String VUE ="/WEB-INF/Inscription.jsp";
+    public static final String RESULT ="/WEB-INF/Result.jsp";
     public static final String LOGIN = "login";
     public static final String MDP = "mdp";
     public static final String CMDP = "cmdp";
@@ -46,16 +47,33 @@ public class Inscription extends javax.servlet.http.HttpServlet {
 
         tx = sessionHibernate.beginTransaction();
 
-        if(request.getParameter(TYPE) != null &&  request.getParameter(TYPE).equals("Entreprise")){
-            if(motDePasse.equals(confirmation)) sessionHibernate.saveOrUpdate(new Entreprise(login,motDePasse,annuaire,raison));
-        }
-        if(request.getParameter(TYPE) != null &&  request.getParameter(TYPE).equals("Particulier")){
-            if(motDePasse.equals(confirmation))sessionHibernate.saveOrUpdate(new Particulier(login,motDePasse,annuaire,nom,prenom));
+        StringBuilder message = new StringBuilder();
+
+        if (request.getParameter(TYPE) != null) {
+            if(request.getParameter(TYPE).equals("Entreprise")){
+                if(motDePasse.equals(confirmation)){
+                    sessionHibernate.saveOrUpdate(new Entreprise(login,motDePasse,annuaire,raison));
+                    message.append("Success");
+                }else{
+                    message.append("Erreur mot de passe.");
+                }
+            }
+            if(request.getParameter(TYPE).equals("Particulier")){
+                if(motDePasse.equals(confirmation)){
+                    sessionHibernate.saveOrUpdate(new Particulier(login,motDePasse,annuaire,nom,prenom));
+                    message.append("Success");
+                }else{
+                    message.append("Erreur mot de passe.");
+                }
+            }
+        }else{
+            message.append("Erreur type.");
         }
 
         tx.commit();
 
-        this.getServletContext().getRequestDispatcher("/index.jsp").forward( request, response );
+        request.getSession().setAttribute("message", message);
+        this.getServletContext().getRequestDispatcher(RESULT).forward( request, response );
 
     }
 

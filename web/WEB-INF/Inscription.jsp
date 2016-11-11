@@ -16,7 +16,6 @@
     <p>Nom : <input type="text" id="nom" name="nom"></p>
     <p>Prenom : <input type="text" id="prenom" name="prenom"></p>
     <p class="submit"><input type="submit" name="submit" id="submit" value="Inscription"></p>
-    <label for="submit"></label>
 </form>
 <p><a href="/">Retour</a></p>
 </body>

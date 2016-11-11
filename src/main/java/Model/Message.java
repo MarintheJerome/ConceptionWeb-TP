@@ -16,7 +16,7 @@ public class Message {
     @Column(name="objet")
     private String objet;
 
-    @Column(name="message")
+    @Column(name="message", columnDefinition="TEXT")
     private String message;
 
     @ManyToOne

@@ -17,6 +17,7 @@
         <th>Objet : </th>
         <th>Message :</th>
     </tr>
+    ${messages}
 </table>
 <p><a href="/">Retour</a></p>
 </body>

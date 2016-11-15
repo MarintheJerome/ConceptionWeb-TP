@@ -13,7 +13,7 @@
     <% } %>
     <p><a href="/inscription">Inscription</a></p>
     <p><a href="/message">Publier</a></p>
-    <p><a href="/messagerie">Messagerie</a></p>
+    <p><a href="/messagerie">Messages</a></p>
    <!-- <p><a href="/abonnement">Abonnement</a></p>-->
   </body>
 </html>

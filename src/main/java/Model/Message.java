@@ -23,10 +23,6 @@ public class Message {
     @JoinColumn(name="idAbonne")
     private Abonne sender;
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="AbonneMessage", joinColumns={@JoinColumn(name="idMessage")}, inverseJoinColumns={@JoinColumn(name="loginAbonne")})
-    private Set<Abonne> receivers = new HashSet<Abonne>();
-
     public Message(){}
     public Message(String o, String m){this.objet=o; this.message=m;}
 
@@ -52,14 +48,6 @@ public class Message {
 
     public void setSender(Abonne sender) {
         this.sender = sender;
-    }
-
-    public Set<Abonne> getReceivers() {
-        return receivers;
-    }
-
-    public void setReceivers(Set<Abonne> receivers) {
-        this.receivers = receivers;
     }
 
     public int getId() {

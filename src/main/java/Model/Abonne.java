@@ -23,11 +23,6 @@ public class Abonne {
     @OneToMany(mappedBy = "sender")
     private Set<Message> messagesEmitted = new HashSet<Message>();
 
-    @ManyToMany(cascade=CascadeType.ALL, mappedBy = "receivers")
-    //@JoinTable(name="AbonneMessage", joinColumns=@JoinColumn(name="loginAbonne"), inverseJoinColumns=@JoinColumn(name="idMessage"))
-    private Set<Message> messagesReiceved  = new HashSet<Message>();
-
-
     public Abonne() {
     }
 
@@ -74,11 +69,4 @@ public class Abonne {
         this.messagesEmitted = messagesEmitted;
     }
 
-    public Set<Message> getMessagesReiceved() {
-        return messagesReiceved;
-    }
-
-    public void setMessagesReiceved(Set<Message> messagesReiceved) {
-        this.messagesReiceved = messagesReiceved;
-    }
 }

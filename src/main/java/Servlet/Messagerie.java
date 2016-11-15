@@ -1,5 +1,6 @@
 package Servlet;
 
+import Model.Abonne;
 import Model.Message;
 import Utils.HibernateUtil;
 import org.hibernate.Session;
@@ -42,6 +43,7 @@ public class Messagerie extends HttpServlet {
         }else{
             String q = "from Message";
             List<Model.Message> listemessage = sessionHibernate.createQuery(q).list();
+            System.out.println(session.getAttribute("Login"));
             tx.commit();
             for (Model.Message m : listemessage){
                 messages+="<tr>";

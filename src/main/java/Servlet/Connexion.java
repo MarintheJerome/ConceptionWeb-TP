@@ -39,20 +39,6 @@ public class Connexion extends HttpServlet {
         Abonne a = null;
 
         if(login != null && motDePasse !=null){
-    /*        a = new Abonne(login, motDePasse);
-            String q = "from Abonne a where a.login =:login and a.mdp =:mdp";
-            Query query = sessionHibernate.createQuery(q);
-            query.setParameter("login",login);
-            query.setParameter("mdp",motDePasse);
-            Object queryResult = query.uniqueResult();
-            tx.commit();
-            if(queryResult ==null){
-                message.append("Fail");
-            }
-            if(queryResult != null){
-                session.setAttribute("Login", login);
-                message.append("Success : bienvenu : "+a.getLogin());
-            }*/
             a = sessionHibernate.get(Abonne.class, login);
             if(a ==null){
                 message.append("Fail");
@@ -66,6 +52,7 @@ public class Connexion extends HttpServlet {
             message.append("Il manque une valeur");
         }
 
+        tx.commit();
         request.getSession().setAttribute("message", message);
         this.getServletContext().getRequestDispatcher(RESULT).forward( request, response );
 

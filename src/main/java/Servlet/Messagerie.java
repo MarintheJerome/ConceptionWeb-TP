@@ -44,7 +44,6 @@ public class Messagerie extends HttpServlet {
             String q = "from Message";
             List<Model.Message> listemessage = sessionHibernate.createQuery(q).list();
             System.out.println(session.getAttribute("Login"));
-            tx.commit();
             for (Model.Message m : listemessage){
                 messages+="<tr>";
                 messages+="<td>"+m.getSender().getLogin()+"</td>";
@@ -53,7 +52,7 @@ public class Messagerie extends HttpServlet {
                 messages+="</tr>";
             }
         }
-
+        tx.commit();
         request.getSession().setAttribute("messages", messages);
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }

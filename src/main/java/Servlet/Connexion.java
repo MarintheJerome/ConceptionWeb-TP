@@ -45,7 +45,7 @@ public class Connexion extends HttpServlet {
             }
             if(a != null){
                 session.setAttribute("Login", login);
-                message.append("Success : bienvenu : "+a.getLogin());
+                message.append("Success ! Bienvenue "+a.getLogin());
             }
 
         }else{
